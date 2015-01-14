@@ -7,8 +7,8 @@
 
 ##Methods
 
-    void moveRightWheel(double time);
-    void moveLeftWheel(double time);
+    void moveRightWheel(int time);
+    void moveLeftWheel(int time);
 
 These methods cause the right and...
 
