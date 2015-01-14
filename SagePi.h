@@ -10,6 +10,7 @@ const int speed = 150;
 int wheelRTime = 0;
 bool wheelRForward = true;
 int wheelLTime = 0;
+bool wheelLForward = true;
 
 
 void start(){
@@ -20,6 +21,24 @@ void start(){
     pinMode(In3, OUTPUT);
     pinMode(In4, OUTPUT);
     
+}
+
+void stopLeftWheel(){
+    moveLeftWheel(0,true);
+}
+
+void stopRightWheel(){
+    moveRightWheel(0,true);
+}
+
+void moveLeftWheel(int time, bool direction){
+    wheelLTime = time;
+    wheelLForward = direction;
+}
+
+void moveRightWheel(int time, bool direction){
+    wheelRTime = time;
+    wheelRForward = direction;
 }
 
 void updateRobot(){
@@ -41,9 +60,8 @@ void updateRobot(){
         analogWrite(In2, speed); 
         analogWrite(In1, 0); 
     }
-    
-
-    
 }
+
+
     
 #endif
