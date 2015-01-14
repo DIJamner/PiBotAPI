@@ -14,7 +14,7 @@ bool wheelLForward = true;
 
 
 void start(){
-    Timer1.initialize(100000);
+    Timer1.initialize(10000);//TODO: check timing
     Timer1.attachInterrupt(updateRobot);
     pinMode(In1, OUTPUT);
     pinMode(In2, OUTPUT);
