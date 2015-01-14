@@ -15,8 +15,8 @@ void updateRobot(){
     if(wheelRTime != 0){
         wheelRTTime -= 10;
     }
-    if(wheelRTime != 0){
-        wheelRTTime -= 10;
+    if(wheelLTime != 0){
+        wheelLTime -= 10;
     }
 }
     
