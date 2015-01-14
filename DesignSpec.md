@@ -10,5 +10,8 @@
     void moveRightWheel(int time);
     void moveLeftWheel(int time);
 
-These methods cause the right and...
+These methods cause the right and left wheels to begin turning and 
+
+    void stopRightWheel();
+    void stopLeftWheel();
 
