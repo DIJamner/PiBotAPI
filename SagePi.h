@@ -26,13 +26,23 @@ void updateRobot(){
     if(wheelRTime != 0){
         wheelRTime -= 10;
     }else if(wheelRForward){
-        
+        analogWrite(In4, 0); 
+        analogWrite(In3, speed);
     }else{
-        
+        analogWrite(In4, speed); 
+        analogWrite(In3, 0);
     }
     if(wheelLTime != 0){
         wheelLTime -= 10;
+    }else if(wheelLForward){
+        analogWrite(In2, 0); 
+        analogWrite(In1, speed); 
+    }else{
+        analogWrite(In2, speed); 
+        analogWrite(In1, 0); 
     }
+    
+
     
 }
     
