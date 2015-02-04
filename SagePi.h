@@ -6,14 +6,29 @@ const int In2 = 5;
 const int In3 = 6;      
 const int In4 = 11;   
 
-const int speed = 150;
+const int RIGHT = 0, LEFT = 1;
+
+const int speed[10][2] = {
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150},
+  {150,150}
+};
+int robot = -1;
 int wheelRTime = 0;
 bool wheelRForward = true;
 int wheelLTime = 0;
 bool wheelLForward = true;
 
 
-void start(){
+void start(int rbt){
+    robot = rbt;
     Timer1.initialize(10000);//TODO: check timing
     Timer1.attachInterrupt(updateRobot);
     pinMode(In1, OUTPUT);
@@ -46,18 +61,18 @@ void updateRobot(){
         wheelRTime -= 10;
     }else if(wheelRForward){
         analogWrite(In4, 0); 
-        analogWrite(In3, speed);
+        analogWrite(In3, speed[robot][RIGHT]);
     }else{
-        analogWrite(In4, speed); 
+        analogWrite(In4, speed[robot][RIGHT]); 
         analogWrite(In3, 0);
     }
     if(wheelLTime != 0){
         wheelLTime -= 10;
     }else if(wheelLForward){
         analogWrite(In2, 0); 
-        analogWrite(In1, speed); 
+        analogWrite(In1, speed[robot][LEFT]); 
     }else{
-        analogWrite(In2, speed); 
+        analogWrite(In2, speed[robot][LEFT]); 
         analogWrite(In1, 0); 
     }
 }
