@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map for PiBot
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+moveRightWheel	KEYWORD2
+stopRightWheel	KEYWORD2
+moveLeftWheel	KEYWORD2
+stopLeftWheel	KEYWORD2
+PiBot	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

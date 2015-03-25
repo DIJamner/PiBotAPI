@@ -1,12 +1,14 @@
-#ifndef SagePi
-#define SagePi
+#include <Arduino.h>
+#include <TimerOne.h>
+#include "PiBot.h"
+
+const int RIGHT = 0, LEFT = 1;
+
 
 const int In1 = 3;      
 const int In2 = 5;      
 const int In3 = 6;      
 const int In4 = 11;   
-
-const int RIGHT = 0, LEFT = 1;
 
 const int speed[10][2] = {
   {150,150},
@@ -59,24 +61,28 @@ void moveRightWheel(int time, bool direction){
 void updateRobot(){
     if(wheelRTime != 0){
         wheelRTime -= 10;
-    }else if(wheelRForward){
-        analogWrite(In4, 0); 
-        analogWrite(In3, speed[robot][RIGHT]);
+        if(wheelRForward){
+                analogWrite(In4, 0); 
+                analogWrite(In3, speed[robot][RIGHT]);
+            }else{
+                analogWrite(In4, speed[robot][RIGHT]); 
+                analogWrite(In3, 0);
+            }
     }else{
-        analogWrite(In4, speed[robot][RIGHT]); 
+        analogWrite(In4, 0); 
         analogWrite(In3, 0);
     }
     if(wheelLTime != 0){
         wheelLTime -= 10;
-    }else if(wheelLForward){
-        analogWrite(In2, 0); 
-        analogWrite(In1, speed[robot][LEFT]); 
+        if(wheelLForward){
+            analogWrite(In2, 0); 
+            analogWrite(In1, speed[robot][LEFT]); 
+        }else{
+            analogWrite(In2, speed[robot][LEFT]); 
+            analogWrite(In1, 0); 
+        }
     }else{
-        analogWrite(In2, speed[robot][LEFT]); 
-        analogWrite(In1, 0); 
-    }
+            analogWrite(In2, 0);
+            analogWrite(In1, 0);
+        }
 }
-
-
-    
-#endif
